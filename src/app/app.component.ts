@@ -11,11 +11,13 @@ import { YugiohCardsModel } from './models/yugioh-cards.model'
 })
 export class AppComponent {
   title = 'CardsBrubs';
+  page: number = 1;
   listaYugiohCards: YugiohCardsModel
   constructor(private yugiohService: YugiohCardsService) { }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    this.listarTodosCards();
 
   }
 

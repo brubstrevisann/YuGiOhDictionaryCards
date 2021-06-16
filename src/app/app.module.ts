@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { YugiohCardsService } from './services/yugioh-cards.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { YugiohCardsService } from './services/yugioh-cards.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [YugiohCardsService, HttpClient],
   bootstrap: [AppComponent]
