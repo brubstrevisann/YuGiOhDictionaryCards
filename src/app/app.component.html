@@ -1,5 +1,6 @@
 <div class="justify-content-center text-center">
-  <h1 class="text-center" style="margin-top: 26px; color: #bd511f">CardsBrubs</h1><br><br>
+  <!-- <h1 class="text-center" style="margin-top: 26px; color: #bd511f">CardsBrubs</h1><br><br> -->
+  <br><br>
   <img class="card-img-top" data-src="" alt="" style="height: 225px; width: 100%; display: block; object-fit: none;"
     src="assets/imgs/teste2.png" data-holder-rendered="true">
 
@@ -90,9 +91,9 @@
 
 <div  class="card-columns ">
   <div *ngFor="let item of listaYugiohCards | paginate: { itemsPerPage: 20, currentPage: page }" class="card">
-    <img class="card-img-top" src={{item.card_images[0].image_url}} alt="Card image cap">
+    <img class="card-img-top" (click)="openModal(templateDetalhes,item);" src={{item.card_images[0].image_url}} alt="Card image cap">
     <div class="middle">
-      <div class="text">Detalhes</div>
+      <div data-toggle="modal" data-target=".bd-example-modal-lg-confirmacao" (click)="openModal(templateDetalhes,item);" class="text">Detalhar</div>
     </div>
     <!-- <div class="card-body">
       <h5 class="card-title">Card title</h5>
@@ -108,3 +109,76 @@
   <pagination-controls style="color: #bd511f" (pageChange)="page = $event"></pagination-controls>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #templateDetalhes class="fade bd-example-modal-lg" style=" padding-right: 0  !important ;"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <!-- <div class="modal-dialog modal-lg" style="max-width: 938px; margin-top: 5rem;"> -->
+    <!-- style="background: #bd511f;" -->
+    <!-- [style.background-image]="'url(' + cardSelecionado.card_images[0].image_url + ')'" -->
+      <div  class="modal-body">
+        <div class="container-fluid">
+          <!-- <div class="row">
+            <div class="col-md-4">{{cardSelecionado.name}}</div>
+            <div class="col-md-4 ml-auto">{{cardSelecionado.name}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 ml-auto">{{cardSelecionado.name}}</div>
+            <div class="col-md-2 ml-auto">{{cardSelecionado.name}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 ml-auto">{{cardSelecionado.name}}</div>
+          </div> -->
+          <img class="card-img-top" src={{cardSelecionado.card_images[0].image_url}} alt="Card image cap"><br><br>
+          <div>
+          <div class="row">
+            <div class="col-md-3 ">
+              Nome:
+            </div>
+            <div class="col-md-4 ">
+              {{cardSelecionado.name}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+             Tipo:
+            </div>
+            <div class="col-md-4">
+              {{cardSelecionado.type}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+             Raça:
+            </div>
+            <div class="col-md-4">
+              {{cardSelecionado.race}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              Descrição:
+            </div>
+            <div class="col-lg">
+              {{cardSelecionado.desc}}
+            </div>
+          </div>
+         
+        </div>
+      </div>
+        <!-- <div  style="border-top:0; margin-top: 6rem; background: #bd511f; margin-bottom: 1rem;" class="justify-content-center text-center" >
+          <button type="button"  type="button" class="justify-content-center">Fechar</button>
+        </div> -->
+      </div>
+     
+    <!-- </div> -->
+</ng-template>

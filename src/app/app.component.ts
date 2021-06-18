@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
 import { from } from 'rxjs';
 import { YugiohCardsService } from './services/yugioh-cards.service'
 import { YugiohCardsModel } from './models/yugioh-cards.model'
@@ -7,14 +9,22 @@ import { YugiohCardsModel } from './models/yugioh-cards.model'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+ 
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'CardsBrubs';
   page: number = 1;
   listaYugiohCards: YugiohCardsModel
-  constructor(private yugiohService: YugiohCardsService) { }
-  ngOnInit(): void {
+  cardSelecionado: YugiohCardsModel;
+  public modalRef: BsModalRef;
+
+  constructor(private yugiohService: YugiohCardsService,
+              private modalService: BsModalService,
+    ) { }
+
+
+  ngOnInit(){
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.listarTodosCards();
@@ -26,11 +36,6 @@ export class AppComponent {
       (result: any) => {
         console.log(this.listaYugiohCards)
         this.listaYugiohCards = result.data;
-        console.log(result)
-        console.log("listaCards:" + this.listaYugiohCards.toString())
-        this.stringify(this.listaYugiohCards)
-
-
       },
       (error: HttpErrorResponse) => {
         console.log(error);
@@ -38,9 +43,15 @@ export class AppComponent {
     )
   }
 
-
-  stringify(x) {
-    console.log(Object.prototype.toString.call(x));
+ public openModal(template: TemplateRef<any>,item:any) {
+    this.modalRef = this.modalService.show(template,{class:'modal-content'});
+    this.cardSelecionado = item
+  }
+  public hideModal() {
+    this.modalRef.hide();
+ 
+    // this.form.markAsPristine();
+   
   }
 }
 

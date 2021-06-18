@@ -7,6 +7,12 @@ import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http'
 import { YugiohCardsService } from './services/yugioh-cards.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +21,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [YugiohCardsService, HttpClient],
   bootstrap: [AppComponent]

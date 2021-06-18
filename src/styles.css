@@ -51,12 +51,21 @@ body {
 }
 
 
+.modal-content{
+  border: 0;
+}
 
 
+.col-md-3{
+  color: #6d2403;
+  font-weight: 900;
+}
 
 
-
-
+.modal-backdrop.show{
+  opacity: 0.7;
+  background-image: url(assets/imgs/card-back.png);
+}
 
 
 @media (min-width: 34em) {
