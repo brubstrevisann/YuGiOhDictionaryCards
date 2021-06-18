@@ -34,6 +34,42 @@ body {
   font-size: 16px;
   padding: 16px 32px;
 }
+
+
+
+::-webkit-input-placeholder {
+  color: white !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: white !important;}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: white !important;}
+
+:-ms-input-placeholder {  
+  color: white !important;}
+
+.form-control{
+  background-color: #916957;
+  background-clip: padding-box;
+  border: 1px solid #bd511f;
+    border-radius: .25rem;
+    color: white !important;
+}
+
+.form-control:focus {
+  
+  border-color: #bd511f; 
+ 
+}
+
+input:focus{
+  background-color: #772d0a!important;
+  color: white !important;
+}
+
+
 /* .image {
     opacity: 1;
     display: block;

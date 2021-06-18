@@ -8,6 +8,18 @@
 </div>
 
 <br><br><br>
+
+<div  style=" width: 50%;margin: 0 auto;" class="text-center">
+  <div class="form-row ">
+    <div class="col">
+      <input    [(ngModel)]="nome" name="nome" type="text" class="form-control" placeholder="Digite o nome do card">
+    </div>
+  </div>
+  <br>
+  <button type="button" (click)="listarCardsPorNome()" class="btn btn-dark">Pesquisar</button>
+</div>
+  <br><br><br>
+
 <!-- <table class="table">
   <thead class="thead-dark">
     <tr style="color: #773d16;">

@@ -25,10 +25,10 @@ export class YugiohCardsService  {
     // headers = headers.set("Content-Type", "application/x-www-form-urlencoded");
     return this.httpClient.get(`${environment.db_ygoprodeck}`);
   }
-  filtroPorNome(nome : any){
+  listarPorNome(nome : any){
     let headers = new HttpHeaders();
     // headers = headers.set("Content-Type", "application/x-www-form-urlencoded");
-    return this.httpClient.get(`${environment.db_ygoprodeck}/${nome}`);
+    return this.httpClient.get(`${environment.db_ygoprodeck}?name=%${nome}%`);
   }
 
 }

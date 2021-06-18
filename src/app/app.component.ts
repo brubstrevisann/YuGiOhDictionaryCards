@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { from } from 'rxjs';
 import { YugiohCardsService } from './services/yugioh-cards.service'
 import { YugiohCardsModel } from './models/yugioh-cards.model'
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,9 @@ import { YugiohCardsModel } from './models/yugioh-cards.model'
 export class AppComponent implements OnInit {
   title = 'CardsBrubs';
   page: number = 1;
+  form: FormGroup
+  nome:any;
+
   listaYugiohCards: YugiohCardsModel
   cardSelecionado: YugiohCardsModel;
   public modalRef: BsModalRef;
@@ -42,6 +46,20 @@ export class AppComponent implements OnInit {
       }
     )
   }
+
+  listarCardsPorNome(){
+    this.yugiohService.listarPorNome(this.nome).subscribe(
+      (result: any) => {
+        console.log(this.listaYugiohCards)
+        this.listaYugiohCards = result.data;
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    )
+
+  }
+
 
  public openModal(template: TemplateRef<any>,item:any) {
     this.modalRef = this.modalService.show(template,{class:'modal-content'});
