@@ -11,24 +11,24 @@ import { FormGroup } from '@angular/forms';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
- 
+
 })
 export class AppComponent implements OnInit {
   title = 'CardsBrubs';
   page: number = 1;
   form: FormGroup
-  nome:any;
+  nome: any;
 
   listaYugiohCards: YugiohCardsModel
   cardSelecionado: YugiohCardsModel;
   public modalRef: BsModalRef;
 
   constructor(private yugiohService: YugiohCardsService,
-              private modalService: BsModalService,
-    ) { }
+    private modalService: BsModalService,
+  ) { }
 
 
-  ngOnInit(){
+  ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.listarTodosCards();
@@ -47,29 +47,34 @@ export class AppComponent implements OnInit {
     )
   }
 
-  listarCardsPorNome(){
-    this.yugiohService.listarPorNome(this.nome).subscribe(
-      (result: any) => {
-        console.log(this.listaYugiohCards)
-        this.listaYugiohCards = result.data;
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    )
+  listarCardsPorNome() {
+    if (this.nome != "") {
+      this.yugiohService.listarPorNome(this.nome).subscribe(
+        (result: any) => {
+          console.log(this.listaYugiohCards)
+          this.listaYugiohCards = result.data;
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error);
+        }
+      )
+    } else {
+      this.listarTodosCards();
+    }
+
 
   }
 
 
- public openModal(template: TemplateRef<any>,item:any) {
-    this.modalRef = this.modalService.show(template,{class:'modal-content'});
+  public openModal(template: TemplateRef<any>, item: any) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-content' });
     this.cardSelecionado = item
   }
   public hideModal() {
     this.modalRef.hide();
- 
+
     // this.form.markAsPristine();
-   
+
   }
 }
 
