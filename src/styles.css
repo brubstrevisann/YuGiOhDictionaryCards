@@ -1,12 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #07080a;
+  color: white;
 }
 
+label {
+  color: white;
+}
+h1 {
+  color: white;
+}
+#header {
+  margin-bottom: 4rem;
+}
 .table .thead-dark th {
   color: #bd511f !important;
 }
-
 
 .card {
   cursor: pointer;
@@ -35,40 +44,40 @@ body {
   padding: 16px 32px;
 }
 
-
-
 ::-webkit-input-placeholder {
   color: white !important;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-  color: white !important;}
-
-::-moz-placeholder {  /* Firefox 19+ */
-  color: white !important;}
-
-:-ms-input-placeholder {  
-  color: white !important;}
-
-.form-control{
-  background-color: #916957;
-  background-clip: padding-box;
-  border: 1px solid #bd511f;
-    border-radius: .25rem;
-    color: white !important;
-}
-
-.form-control:focus {
-  
-  border-color: #bd511f; 
- 
-}
-
-input:focus{
-  background-color: #772d0a!important;
+:-moz-placeholder {
+  /* Firefox 18- */
   color: white !important;
 }
 
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white !important;
+}
+
+:-ms-input-placeholder {
+  color: white !important;
+}
+
+.form-control {
+  background-color: #916957;
+  background-clip: padding-box;
+  border: 1px solid #bd511f;
+  border-radius: 0.25rem;
+  color: white !important;
+}
+
+.form-control:focus {
+  border-color: #bd511f;
+}
+
+input:focus {
+  background-color: #772d0a !important;
+  color: white !important;
+}
 
 /* .image {
     opacity: 1;
@@ -86,52 +95,48 @@ input:focus{
   opacity: 1;
 }
 
-
-.modal-content{
+.modal-content {
   border: 0;
 }
 
-
-.col-md-3{
+.col-md-3 {
   color: #6d2403;
   font-weight: 900;
 }
 
-
-.modal-backdrop.show{
+.modal-backdrop.show {
   opacity: 0.7;
   background-image: url(assets/imgs/card-back.png);
 }
 
-
 @media (min-width: 34em) {
-    .card-columns {
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
-      column-count: 2;
-    }
+  .card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
   }
-  
-  @media (min-width: 48em) {
-    .card-columns {
-      -webkit-column-count: 3;
-      -moz-column-count: 3;
-      column-count: 3;
-    }
+}
+
+@media (min-width: 48em) {
+  .card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
   }
-  
-  @media (min-width: 62em) {
-    .card-columns {
-      -webkit-column-count: 4;
-      -moz-column-count: 4;
-      column-count: 4;
-    }
+}
+
+@media (min-width: 62em) {
+  .card-columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
   }
-  
-  @media (min-width: 75em) {
-    .card-columns {
-      -webkit-column-count: 5;
-      -moz-column-count: 5;
-      column-count: 5;
-    }
+}
+
+@media (min-width: 75em) {
+  .card-columns {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
   }
+}

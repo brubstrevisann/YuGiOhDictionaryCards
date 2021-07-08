@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, Query, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 import { from } from 'rxjs';
@@ -15,6 +15,27 @@ import { FormGroup } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'CardsBrubs';
+  types = ["Effect Monster",
+    // "Flip Effect Monster",
+    // "Flip Tuner Effect Monster",
+    // "Gemini Monster",
+    // "Normal Monster",
+    // "Normal Tuner Monster",
+    // "Pendulum Effect Monster",
+    // "Pendulum Flip Effect Monster",
+    // "Pendulum Normal Monster",
+    // "Pendulum Tuner Effect Monster",
+    // "Ritual Effect Monster",
+    // "Ritual Monster",
+    "Skill Card",
+    "Spell Card",
+    // "Spirit Monster",
+    // "Toon Monster",
+    "Trap Card"
+    // "Tuner Monster",
+    // "Union Effect Monster"
+  ]
+  selectedTypes: any;
   page: number = 1;
   form: FormGroup
   nome: any;
@@ -32,6 +53,7 @@ export class AppComponent implements OnInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.listarTodosCards();
+    this.selectedTypes = []
 
   }
 
@@ -48,7 +70,10 @@ export class AppComponent implements OnInit {
   }
 
   listarCardsPorNome() {
-    if (this.nome != "") {
+    if (this.nome) {
+      if (this.selectedTypes) {
+        this.yugiohService.listarPorNomeETipos(this.nome, this.montarQueryParams(this.selectedTypes))
+      }
       this.yugiohService.listarPorNome(this.nome).subscribe(
         (result: any) => {
           console.log(this.listaYugiohCards)
@@ -74,6 +99,31 @@ export class AppComponent implements OnInit {
     this.modalRef.hide();
 
     // this.form.markAsPristine();
+
+  }
+
+  onCheckboxChange(e) {
+    if (e.target.checked) {
+      this.selectedTypes.push(e.target.value);
+    } else {
+      let i: number = 0;
+      this.selectedTypes.forEach((item: any) => {
+        if (item == e.target.value) {
+          this.selectedTypes.splice(i);
+          return;
+        }
+        i++;
+      });
+    }
+    console.log(this.selectedTypes)
+  }
+
+  montarQueryParams(e) {
+    let query = '';
+    e.map((j) => {
+      query = query + j + ','
+    })
+    return query.split(' ').join('%20');
 
   }
 }

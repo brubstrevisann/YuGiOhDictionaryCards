@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  db_ygoprodeck:`https://db.ygoprodeck.com/api/v7/cardinfo.php`
+  db_ygoprodeck: `https://db.ygoprodeck.com/api/v7/cardinfo.php?language=pt`
 
 };
 

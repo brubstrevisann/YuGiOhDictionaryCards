@@ -1,26 +1,39 @@
-<div class="justify-content-center text-center">
-  <!-- <h1 class="text-center" style="margin-top: 26px; color: #bd511f">CardsBrubs</h1><br><br> -->
-  <br><br>
-  <img class="card-img-top" data-src="" alt="" style="height: 225px; width: 100%; display: block; object-fit: none;"
-    src="assets/imgs/teste2.png" data-holder-rendered="true">
+<body>
+  <header id="header">
+    <div class="justify-content-center text-center">
+      <!-- <h1 class="text-center" style="margin-top: 26px; color: #bd511f">CardsBrubs</h1><br><br> -->
+      <br><br>
+      <img class="card-img-top" data-src="" alt="" style="height: 225px; width: 100%; display: block; object-fit: none;"
+        src="assets/imgs/teste2.png" data-holder-rendered="true">
 
-  <!-- <button class="btn btn-dark justify-content-center" (click)="listarTodosCards()">Listar todos cards</button> -->
-</div>
-
-<br><br><br>
-
-<div  style=" width: 50%;margin: 0 auto;" class="text-center">
-  <div class="form-row ">
-    <div class="col">
-      <input    [(ngModel)]="nome" name="nome" type="text" class="form-control" placeholder="Digite o nome do card">
+      <!-- <button class="btn btn-dark justify-content-center" (click)="listarTodosCards()">Listar todos cards</button> -->
     </div>
-  </div>
-  <br>
-  <button type="button" (click)="listarCardsPorNome()" class="btn btn-dark">Pesquisar</button>
-</div>
-  <br><br><br>
+  </header>
+  <main>
+    <section id="pesquisar" style=" width: 50%;margin: 0 auto;" class="text-center">
+      <div class="form-row ">
+        <div class="col">
+          <input [(ngModel)]="nome" name="nome" type="text" class="form-control" placeholder="Digite o nome do card">
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="text-center">
+        <h2>Tipos de cards</h2>
+      </div>
+      <div *ngFor="let item of types" class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" (change)="onCheckboxChange($event)"
+          [value]="item">
+        <label class="form-check-label">{{item}}</label>
+      </div>
+      <br>
+      <br>
+      <button type="button" (click)="listarCardsPorNome()" class="btn btn-dark">Pesquisar</button>
 
-<!-- <table class="table">
+    </section>
+    <br><br><br>
+
+    <!-- <table class="table">
   <thead class="thead-dark">
     <tr style="color: #773d16;">
       <th scope="col">Id</th>
@@ -42,9 +55,9 @@
   </tbody>
 </table> -->
 
-<!-- <div class="card-group"> -->
-  <!-- Primeiro card -->
-  <!-- <div class="card" style="width: 18rem;">
+    <!-- <div class="card-group"> -->
+    <!-- Primeiro card -->
+    <!-- <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
@@ -61,8 +74,8 @@
       <a href="#" class="card-link">Another link</a>
     </div>
   </div> -->
-  <!-- Segundo Card -->
-  <!-- <div class="card" style="width: 18rem;">
+    <!-- Segundo Card -->
+    <!-- <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
@@ -79,8 +92,8 @@
       <a href="#" class="card-link">Another link</a>
     </div>
   </div> -->
-  <!-- Terceiro Card -->
-  <!-- <div class="card" style="width: 18rem;">
+    <!-- Terceiro Card -->
+    <!-- <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
@@ -101,30 +114,30 @@
 
 
 
-<div  class="card-columns ">
-  <div *ngFor="let item of listaYugiohCards | paginate: { itemsPerPage: 20, currentPage: page }" class="card">
-    <img class="card-img-top" (click)="openModal(templateDetalhes,item);" src={{item.card_images[0].image_url}} alt="Card image cap">
-    <div class="middle">
-      <div data-toggle="modal" data-target=".bd-example-modal-lg-confirmacao" (click)="openModal(templateDetalhes,item);" class="text">Detalhar</div>
-    </div>
-    <!-- <div class="card-body">
+    <section id="cards" class="card-columns ">
+      <div *ngFor="let item of listaYugiohCards | paginate: { itemsPerPage: 20, currentPage: page }" class="card">
+        <img class="card-img-top" (click)="openModal(templateDetalhes,item);" src={{item.card_images[0].image_url}}
+          alt="Card image cap">
+        <div class="middle">
+          <div data-toggle="modal" data-target=".bd-example-modal-lg-confirmacao"
+            (click)="openModal(templateDetalhes,item);" class="text">Detalhar</div>
+        </div>
+        <!-- <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div> -->
-  </div>
- 
-</div>
+      </div>
 
-<br><br>
-<div class="has-text-centered text-center">
-  <pagination-controls style="color: #bd511f" (pageChange)="page = $event"></pagination-controls>
-</div>
+    </section>
 
+    <br><br>
+    <div class="has-text-centered text-center">
+      <pagination-controls style="color: #bd511f" (pageChange)="page = $event"></pagination-controls>
+    </div>
 
-
-
-
+  </main>
+</body>
 
 
 
@@ -133,13 +146,16 @@
 
 
 
-<ng-template #templateDetalhes class="fade bd-example-modal-lg" style=" padding-right: 0  !important ;"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+
+<ng-template #templateDetalhes class="fade bd-example-modal-lg" style=" padding-right: 0  !important ;" tabindex="-1"
+  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <!-- <div class="modal-dialog modal-lg" style="max-width: 938px; margin-top: 5rem;"> -->
-    <!-- style="background: #bd511f;" -->
-    <!-- [style.background-image]="'url(' + cardSelecionado.card_images[0].image_url + ')'" -->
-      <div  class="modal-body">
-        <div class="container-fluid">
-          <!-- <div class="row">
+  <!-- style="background: #bd511f;" -->
+  <!-- [style.background-image]="'url(' + cardSelecionado.card_images[0].image_url + ')'" -->
+  <div class="modal-body">
+    <div class="container-fluid">
+      <!-- <div class="row">
             <div class="col-md-4">{{cardSelecionado.name}}</div>
             <div class="col-md-4 ml-auto">{{cardSelecionado.name}}</div>
           </div>
@@ -150,47 +166,47 @@
           <div class="row">
             <div class="col-md-6 ml-auto">{{cardSelecionado.name}}</div>
           </div> -->
-          <img class="card-img-top" src={{cardSelecionado.card_images[0].image_url}} alt="Card image cap"><br><br>
-          <div>
-          <div class="row">
-            <div class="col-md-3 ">
-              Nome:
-            </div>
-            <div class="col-md-4 ">
-              {{cardSelecionado.name}}
-            </div>
+      <img class="card-img-top" src={{cardSelecionado.card_images[0].image_url}} alt="Card image cap"><br><br>
+      <div>
+        <div class="row">
+          <div class="col-md-3 ">
+            Nome:
           </div>
-          <div class="row">
-            <div class="col-md-3">
-             Tipo:
-            </div>
-            <div class="col-md-4">
-              {{cardSelecionado.type}}
-            </div>
+          <div class="col-md-4 ">
+            {{cardSelecionado.name}}
           </div>
-          <div class="row">
-            <div class="col-md-3">
-             Raça:
-            </div>
-            <div class="col-md-4">
-              {{cardSelecionado.race}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">
-              Descrição:
-            </div>
-            <div class="col-lg">
-              {{cardSelecionado.desc}}
-            </div>
-          </div>
-         
         </div>
+        <div class="row">
+          <div class="col-md-3">
+            Tipo:
+          </div>
+          <div class="col-md-4">
+            {{cardSelecionado.type}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            Raça:
+          </div>
+          <div class="col-md-4">
+            {{cardSelecionado.race}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            Descrição:
+          </div>
+          <div class="col-lg">
+            {{cardSelecionado.desc}}
+          </div>
+        </div>
+
       </div>
-        <!-- <div  style="border-top:0; margin-top: 6rem; background: #bd511f; margin-bottom: 1rem;" class="justify-content-center text-center" >
+    </div>
+    <!-- <div  style="border-top:0; margin-top: 6rem; background: #bd511f; margin-bottom: 1rem;" class="justify-content-center text-center" >
           <button type="button"  type="button" class="justify-content-center">Fechar</button>
         </div> -->
-      </div>
-     
-    <!-- </div> -->
+  </div>
+
+  <!-- </div> -->
 </ng-template>
