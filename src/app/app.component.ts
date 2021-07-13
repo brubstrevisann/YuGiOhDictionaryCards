@@ -50,9 +50,9 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+
     this.listarTodosCards();
+
     this.selectedTypes = []
 
   }
@@ -97,9 +97,6 @@ export class AppComponent implements OnInit {
   }
   public hideModal() {
     this.modalRef.hide();
-
-    // this.form.markAsPristine();
-
   }
 
   onCheckboxChange(e) {
@@ -115,7 +112,6 @@ export class AppComponent implements OnInit {
         i++;
       });
     }
-    console.log(this.selectedTypes)
   }
 
   montarQueryParams(e) {
@@ -123,8 +119,8 @@ export class AppComponent implements OnInit {
     e.map((j) => {
       query = query + j + ','
     })
-    return query.split(' ').join('%20');
 
+    return query.split(' ').join('%20');
   }
 }
 
