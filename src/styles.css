@@ -12,12 +12,15 @@ label {
 h1 {
   color: white;
 }
+
 #header {
   margin-bottom: 4rem;
 }
+
 .modal-body {
   color: #6d2403 !important;
 }
+
 .table .thead-dark th {
   color: #bd511f !important;
 }
@@ -42,6 +45,7 @@ h1 {
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
+
 .text {
   background-color: #bd511f;
   color: black;
@@ -145,6 +149,7 @@ input:focus {
     column-count: 5;
   }
 }
+
 @font-face {
   font-family: "Yu-Gi-Oh Matrix";
   src: url(../src/assets/fonts/Yu-Gi-Oh.ttf);
