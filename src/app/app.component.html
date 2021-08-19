@@ -119,11 +119,6 @@
           <div data-toggle="modal" data-target=".bd-example-modal-lg-confirmacao"
             (click)="openModal(templateDetalhes,item);" class="text">Detalhar</div>
         </div>
-        <!-- <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div> -->
       </div>
 
     </section>
@@ -147,22 +142,9 @@
 
 <ng-template #templateDetalhes class="fade bd-example-modal-lg" style=" padding-right: 0  !important ;" tabindex="-1"
   role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <!-- <div class="modal-dialog modal-lg" style="max-width: 938px; margin-top: 5rem;"> -->
-  <!-- style="background: #bd511f;" -->
-  <!-- [style.background-image]="'url(' + cardSelecionado.card_images[0].image_url + ')'" -->
+
   <div class="modal-body">
     <div class="container-fluid">
-      <!-- <div class="row">
-            <div class="col-md-4">{{cardSelecionado.name}}</div>
-            <div class="col-md-4 ml-auto">{{cardSelecionado.name}}</div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 ml-auto">{{cardSelecionado.name}}</div>
-            <div class="col-md-2 ml-auto">{{cardSelecionado.name}}</div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 ml-auto">{{cardSelecionado.name}}</div>
-          </div> -->
       <img class="card-img-top" src={{cardSelecionado.card_images[0].image_url}} alt="Card image cap"><br><br>
       <div>
         <div class="row">
