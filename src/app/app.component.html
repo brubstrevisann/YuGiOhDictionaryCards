@@ -30,87 +30,6 @@
     </section>
     <br><br><br>
 
-    <!-- <table class="table">
-  <thead class="thead-dark">
-    <tr style="color: #773d16;">
-      <th scope="col">Id</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Raça</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="color: #773d16;" *ngFor="let item of listaYugiohCards">
-      <th scope="row">{{item.id}}</th>
-      <td>{{item.name}}</td>
-      <td>{{item.type}}</td>
-      <td>{{item.desc}}</td>
-      <td>{{item.race}}</td>
-    </tr>
-  </tbody>
-</table> -->
-
-    <!-- <div class="card-group"> -->
-    <!-- Primeiro card -->
-    <!-- <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div> -->
-    <!-- Segundo Card -->
-    <!-- <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div> -->
-    <!-- Terceiro Card -->
-    <!-- <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
-</div> -->
-
-
-
     <section id="cards" class="card-columns ">
       <div *ngFor="let item of listaYugiohCards | paginate: { itemsPerPage: 20, currentPage: page }" class="card">
         <img class="card-img-top" (click)="openModal(templateDetalhes,item);" src={{item.card_images[0].image_url}}
@@ -185,5 +104,4 @@
 
   </div>
 
-  <!-- </div> -->
 </ng-template>
